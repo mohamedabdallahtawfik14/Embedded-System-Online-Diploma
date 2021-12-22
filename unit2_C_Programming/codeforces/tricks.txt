@@ -1,0 +1,13 @@
+Trick No.1
+
+	There are formula to get Xor for 1 to n elements
+	•Find the reminder of n by modeling it with 4.
+	•If rem = 0 ==> Xor equal to n
+	•If rem = 1 ==> Xor equal to 1
+	•If rem = 2 ==> Xor equal to n + 1
+	•If rem = 3 ==> Xor equal to 0 
+	(MEXor Mixup Problem)
+
+Trick No.2
+
+	Division may be cause time limit because it take long time!! (Array and Operation Problem).
