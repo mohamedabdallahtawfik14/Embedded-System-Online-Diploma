@@ -20,8 +20,12 @@ int main(int argc, char **argv)
 {
 	setvbuf(stdout, NULL, _IONBF, 0);
 	int num;
-	printf("Enter an positive: ");
-	scanf("%d", &num);
+	do
+	{
+		printf("Enter an positive: ");
+		scanf("%d", &num);
+	}
+	while(num<0);
 	printf("Factorial of %d = %ld", num, getFactorial(num));
 	return 0;
 }
