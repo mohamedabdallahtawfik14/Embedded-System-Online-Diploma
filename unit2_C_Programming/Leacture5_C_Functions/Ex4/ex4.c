@@ -57,7 +57,7 @@ int main(int argc, char **argv)
 	printf("Enter power number(positive number): ");
 	scanf("%f", &power);
 	result = pw(base, power);
-	result != -1 ? printf("%g^%g = %g", base, power, result) : printf("Invalid Input!!!");;
+	result != -1 ? printf("%g^%g = %g", base, power, result) : printf("Invalid Input!!!");
 	return 0;
 }
 
