@@ -13,7 +13,7 @@ long getFactorial(int a)
 	{
 		return a * getFactorial(a - 1);
 	}
-	return a==0? 1:1;
+	return 1;
 }
 
 int main(int argc, char **argv)
