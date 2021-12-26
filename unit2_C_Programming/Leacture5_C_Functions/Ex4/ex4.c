@@ -7,24 +7,57 @@
 
 #include <stdio.h>
 
-int pw(int base, int power)
+double pw(float base, float power)
 {
-	if(power >= 1)
+	int posPower;
+	float orBase;
+	if(base == 0 && power < 0)
 	{
-		return base * pw(base, power - 1);
+		return -1;
+	}
+	// in general we have 4 cases
+	// case1: power is positive and base is integer
+	// case2: power is negative and base is float
+	// case3: power is positive and base is float
+	// case4: power is negative and base is integer
+	//////// but mathematically we can reduce them to two cases only ///////////
+	// case1 and case2 have same result, case3 and case4 too have same result!
+	if((((int)base == base) && (power >= 0)) || (((int)base != base) && (power <= 0)))
+	{
+		posPower = (power < 0) ? -1*power : power;
+		orBase = ((int)base != base)? (int)(1 / base) : base;
+		if(posPower >= 1)
+		{
+			return orBase * pw(orBase, posPower - 1);
+		}
+	}
+	else
+	{
+		//will reached here if float and pos or int and neg
+		// if float and pos the steps will be normal as we know but it reached here with
+		// int and neg the power will be positive and we will get 1 / value (int)
+		posPower = (power < 0) ? -1*power : power;
+		orBase = ((int)base == base)? (1 / base) : base;
+		if(posPower >= 1)
+		{
+			return orBase * pw(orBase, posPower - 1);
+		}
 	}
 	// any number power of zero equal to 1
 	return 1;
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
 	setvbuf(stdout, NULL, _IONBF, 0);
-	int base, power;
+	float base, power;
+	double result;
 	printf("Enter base number: ");
-	scanf("%d", &base);
+	scanf("%f", &base);
 	printf("Enter power number(positive number): ");
-	scanf("%d", &power);
-	printf("%d^%d = %d", base, power, pw(base, power));
+	scanf("%f", &power);
+	result = pw(base, power);
+	result != -1 ? printf("%g^%g = %g", base, power, result) : printf("Invalid Input!!!");;
 	return 0;
 }
 
