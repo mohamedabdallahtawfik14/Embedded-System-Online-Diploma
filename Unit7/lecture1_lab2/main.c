@@ -30,14 +30,19 @@ int main(void)
 	gpio_init();
 	while(1)
 	{
+		//toggle led on pin5 portD
 		PORTD ^= (1<<5);
 		delay(500);
+		//toggle led on pin6 portD
 		PORTD ^= (1<<6);
 		delay(500);
+		//toggle led on pin7 portD
 		PORTD ^= (1<<7);
 		delay(500);
+		//make buzzer on pin4 portD
 		PORTD |= (1<<4);
 		delay(500);
+		//make buzzer off pin4 portD
 		PORTD  &= ~(1<<4);
 	}
 }
